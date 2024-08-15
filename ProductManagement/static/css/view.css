@@ -1,0 +1,349 @@
+
+
+body{
+    
+    background: linear-gradient(100deg, #1f1cb7, #ae3219);
+    
+}
+
+
+/* section1 */
+.section1{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 5%;
+    
+}
+
+.section1  #text{
+    margin-top: 5%;
+    width: 47%;    
+    font-size: 21px;
+   font-family: 'Courier New', Courier, monospace;
+    color: white;
+} 
+
+
+.section1 div #pic{
+
+    height: 500px;
+    width: 80%;
+
+    display: inline;
+    margin-top: 50px;
+    
+    
+}
+
+
+#welcome{
+    font-size: 60px;
+    text-align: center;
+    color: black;
+}
+#dear{
+    font-size:30px;
+}
+
+
+@media(max-width:600px){
+    
+    .section1{
+        margin-left: 0%;
+    
+        margin-top: 100px;
+        display: block;
+        
+    }
+    .section1 div #pic{
+
+        height: 500px;
+        width: 100%;
+    
+        display: none;
+        
+    }
+    .section1  #text{
+        margin-top: 5%;
+        width: 90%;
+        text-align: center;    
+        font-size: 19px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      
+    } 
+    
+    
+    
+        
+}
+
+/* Ends here */
+
+
+
+
+
+
+/* section2 */
+.section2{
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 5%;
+    
+}
+
+.section2  #text{
+    
+    width: 47%;    
+    font-size: 21px;
+   font-family: 'Courier New', Courier, monospace;
+    color: white;
+} 
+
+
+.section2 div #pic{
+margin-top: 70px;
+    height: 400px;
+    width: 80%;
+
+    display: inline;
+    
+    
+}
+
+
+#welcome{
+    font-size: 60px;
+    text-align: center;
+    color: black;
+}
+#dear{
+    font-size:30px;
+}
+
+
+@media(max-width:700px){
+    
+    .section2{
+        margin-left: 0%;
+    
+        margin-top: 100px;
+        display: block;
+        
+    }
+    .section2 div #pic{
+
+        height: 500px;
+        width: 100%;
+    
+        display: none;
+        
+    }
+    .section2  #text{
+        margin-top: 5%;
+        width: 90%;
+        text-align: center;    
+        font-size: 19px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      
+    } 
+    
+    
+    
+        
+}
+
+/* Ends here */
+
+h1{
+    
+    font-size: 70px;
+    font-family: 'Times New Roman', Times, serif;
+
+    text-align: center;
+    color: black;
+    
+    margin-top: 100px;
+}
+
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+
+
+.form .outer{
+    
+
+    margin-top: 40px;
+    
+    background-image: url('/static/img/back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+    width: 50%;
+    height: 1160px;
+    
+    
+    border-radius: 15px;
+    
+    box-shadow: 20px 10px 20px gray;
+    
+    padding-top: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
+    animation: changing-color 3s linear infinite;
+    color: white;
+    font-size: 23px;
+    border: 8px solid red;
+                   
+}
+
+
+
+
+.form .outer form label{
+    font-size: 19px;
+
+}
+.form  .outer form input{
+    margin-top: 20px;
+    
+    margin-bottom: 3px;
+    height: 38px;
+    border-radius: 10px;
+    width: 85%;
+    font-size: 16px;
+    padding-left: 20px;
+
+
+}
+
+
+
+.form  .outer form  button{
+    width: 100%;
+    height: 60px;
+    margin-top: 28px;
+    
+    background: linear-gradient(100deg, #2f073c, #4a417c);
+
+    
+    color: white;
+    font-size: 24px;
+    border-color: white;
+    cursor: pointer;
+    font-weight: 400;
+    border-radius: 30px;
+    
+    
+}
+
+select{
+    width: 84%;
+    height: 33px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#has_paid{
+    width: 2%;
+    height: 20px;
+    
+
+}
+
+
+@media(max-width:800px){
+    h1{
+    
+        font-size: 40px;
+        font-family: 'Times New Roman', Times, serif;
+    
+        text-align: center;
+        color: black;
+        
+        margin-top: 100px;
+    }
+    
+.form .outer{
+    width: 90%;
+    height: 1090px;
+    
+
+}
+
+
+select{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.form  .outer form input{
+    margin-top: 20px;
+    
+    margin-bottom: 10px;
+    height: 30px;
+    border-radius: 0px;
+    width: 100%;
+    font-size: 16px;
+    padding-left: 20px;
+    
+    
+    
+
+}
+#has_paid{
+    width: 10%;
+    height: 20px;
+    
+
+}
+
+
+
+}
+
+
+
+
+
+@keyframes changing-color {
+    0%{
+        border-color: blue;
+        
+    }
+    50%{
+        border-color: black;
+        
+    }
+    100%{
+        border-color: red;
+
+    }
+    
+}
+
+
+
+footer{
+    margin-top: 40px;
+    background-color: black;
+    height: 80px;
+}
+footer p{
+    padding-top: 30px;
+    color: white;
+    text-align: center;
+    font-size: 26px;
+}

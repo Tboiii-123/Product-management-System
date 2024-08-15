@@ -1,0 +1,67 @@
+ {% extends "base.html" %}
+
+{% load static%}
+
+
+{% block css%}
+<link href="{% static 'css/welcome.css' %} " rel="stylesheet">
+           
+{% endblock%}
+
+
+ {% block content%}
+
+
+<div class='lawal'>
+
+    lawal
+</div>
+
+ <div class='word'>
+    
+    <span>W</span>
+    <span>E</span>
+    <span>L</span>
+    <span>C</span>
+    <span>O</span>
+    <span>M</span>
+    <span>E</span>
+    <span>&nbsp;</span>
+    
+    <span>T</span>
+    <span>O</span>
+    <span>&nbsp;</span>
+    
+    <span>H</span>
+    <span>U</span>
+    <span>S</span>
+    <span>S</span>
+    <span>E</span>
+    <span>I</span>
+    <span>N</span>
+    <span>&nbsp;</span>
+    
+    <span>S</span>
+    <span>T</span>
+    <span>O</span>
+    <span>R</span>
+    <span>E</span>
+    <span>!</span>
+    <span>!</span>
+    <span>!</span>
+    <span>!</span>
+    
+    
+
+ </div>
+ 
+
+
+ 
+ <div id="button">
+     <button ><a href="{% url  'register'%}">Sign Up</a></button>
+     <button ><a href="{% url 'login'%}">Login </a></button>
+     
+ </div>
+ 
+{% endblock%}

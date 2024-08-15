@@ -1,0 +1,310 @@
+{%  extends 'base.html'%}
+
+
+{% load static%}
+
+{% block css%}
+
+<link rel='stylesheet' href={% static  'css/view.css'%}>
+
+{% endblock%}
+
+
+
+{% block content%}
+
+
+
+{{  employee}}
+
+
+<section class="section1">
+
+    <div  id="text">
+        <h6 id="welcome">Welcome to Hussein Store!</h6>
+
+        <h6 id="dear">Dear Team Member,</h6>
+
+        <p>
+
+
+            Welcome to Hussein Store, where our mission is to provide top-notch products and unparalleled customer service. We are thrilled to have you on board and are confident that your skills and dedication will contribute significantly to our success.
+            
+            
+            </p>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-primary btn-xlg px-4 me-md-2">More Info</button>
+          
+        </div>
+      </div>
+      
+    <div>
+        <img src={% static 'img/human2.jpg'%}     id="pic">
+        rhuman.png
+    </div>
+      
+</section>
+
+
+<section class="section2">
+
+
+
+    <div id="text">
+            <h6 id="welcome">Our Vision and Values</h6>
+           
+            <h6 id="dear"></h6>
+        
+            <p>
+
+                As an employee of Hussein Store, you play a vital role in our operations. Whether you are involved in product selection, customer service, technical support, or any other area, your work is essential to our success. We believe in empowering our team members and providing opportunities for growth and development.
+                
+                </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">More Info</button>
+              
+            </div>
+    </div>
+        
+
+      <div>
+        
+            <img src={% static 'img/soft.jpg'%} id="pic">
+      
+      </div>
+    
+    
+  
+
+</section>
+
+
+
+
+<section>
+        
+    <h1>Purchase Here!!!!</h1>
+
+    <div class="form">
+
+
+        <div class="outer">
+        
+<form method='POST' action=''>
+
+{% csrf_token%}
+<label >Buyer's NAME:</label><br>
+<input type="text" placeholder="Insert the buyer's name" name="bname">
+<br>
+<label >Buyer's Number:</label><br>
+<input type="text" placeholder="Insert the buyer's Number" name="bnumber">
+<br>
+<label >Buyer's Email:</label><br>
+<input type="text" placeholder="Insert the buyer's Email Address" name="bmail">
+<br>
+<label  name='pname'>Product Name:</label><br>
+    
+<select id='item' name='item'>
+    <option>Select Your product</option>
+    
+    {% for i in product%}
+    
+    <option value='{{i.id}}'  data-price='{{i.price1}}'    >{{i.name}}</option>
+    
+    {% endfor %}
+    
+ </select>
+ 
+    <br>
+    <label >Price:</label><br>
+    <input type='number' id='price' name='price' readonly placeholder='Naira 0.00' >
+
+        
+
+    <br>
+    <label >Quantity:</label><br>
+    <input type="number" placeholder="Insert the quantity needed" name="quantity" value='1' id='quantity'>
+    <br>
+   
+    <br>
+    <input type="checkbox" placeholder="Insert your Username" name="payment" id='has_paid' {% if product.payment_status%} checked {%endif%}   >
+    
+    <label >Payment status:</label>
+   
+    <br>
+
+<div id="entry" style="display: none;">
+     
+    <label >Price:</label><br>
+
+    <input type='text' id='payment' name='price2'  placeholder='Naira 0.00'>
+ 
+    <br>
+    <label >Debt:</label><br>
+    <input type="text" placeholder="Insert your dept amount" name="owing" id='owing' readonly>
+    <br>
+    
+</div>
+
+        <br>
+
+        
+
+       <button type='submit' id='button'>Submit</button> 
+
+     
+</form>
+
+        </div>
+
+
+        
+
+
+
+</section>
+
+
+<footer>
+    <p>Hussein Store</p>
+</footer>
+
+<script>
+
+
+    {% comment %} 
+    
+    For the showing of the value of one entry in a other
+    {% endcomment %}
+document.addEventListener('DOMContentLoaded',function(){
+
+
+
+   var itemselect =document.getElementById('item');
+   var priceInput =document.getElementById('price');
+
+   var priceInput2=document.getElementById('payment')
+
+   
+       
+
+
+   itemselect.addEventListener('change',function(){
+
+       var selectedOption =itemselect.options[itemselect.selectedIndex];
+       var price = selectedOption.getAttribute('data-price');
+
+       priceInput.value = price || '';
+
+       priceInput2.value =price || '';
+       
+   });
+   
+});
+
+
+
+{% comment %} 
+
+For the toggle function
+{% endcomment %}
+    document.addEventListener('DOMContentLoaded', function() {
+        const hasPaidCheckbox = document.getElementById('has_paid');
+        const entry = document.getElementById('entry');
+
+        // Function to toggle entry visibility
+        function toggleEntry() {
+            if (hasPaidCheckbox.checked) {
+                entry.style.display = 'none';
+            } else {
+                entry.style.display = 'block';
+            }
+        }
+
+        // Initial toggle based on checkbox state
+        toggleEntry();
+
+        // Listen for changes on the checkbox
+        hasPaidCheckbox.addEventListener('change', toggleEntry);
+    }); 
+
+
+
+
+
+{% comment %} 
+
+For the owing function entry
+{% endcomment %}
+
+    document.addEventListener('DOMContentLoaded',function(){
+    
+        const num2 =document.getElementById('price');
+                        
+    
+        const num1input =document.getElementById('payment');
+                
+        const result =document.getElementById('owing');  
+
+        const second =document.getElementById('quantity');
+        
+
+        
+            function cla(){
+            
+                    const num1 = num2.value * second.value ;
+
+                        const cal = num1 - num1input.value ;
+                                       
+                        result.value =Number(cal);
+                        
+            }
+    
+            num1input.addEventListener('input',cla);
+    
+        
+    
+        cla();
+    
+    });
+
+
+
+
+
+    document.addEventListener('DOMContentLoaded',function(){
+    
+        const first = document.getElementById('price');
+
+        const payment =document.getElementById('payment')
+        
+        const second =document.getElementById('quantity');
+
+
+
+
+        function multiply(){
+
+
+
+            const first1 = parseFloat(first.value) || 0 ;
+            const second1 =parseFloat(second.value) ||0;
+            
+            const calculate = first1 * second1 ;
+
+            payment.value =calculate;
+        }
+
+        second.addEventListener('input',multiply);
+
+        multiply();
+
+
+    });
+</script>
+
+
+
+    
+{% endblock%}

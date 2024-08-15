@@ -1,0 +1,135 @@
+{% extends 'base.html'%}
+
+
+
+{% load static%}
+
+
+{% block  css%}
+
+<link href={% static  'css/searched.css'%} rel='stylesheet'>
+
+  
+
+{% endblock%}
+
+
+
+
+
+{% block content%}
+
+
+        <div id='search'>
+
+            <div>
+                <p>Product Bought List</p>
+
+            </div>
+
+            <div>
+                <form method='POST' action=''>
+                    {% csrf_token%}
+                    <label>Product search:</label>
+                    <input type='text' id='input' name='searched'>
+                    <button id='click' type='submit'>Search</button>
+                </form>
+    
+            </div>
+            
+
+
+        </div>
+
+        
+      
+
+{% if searched%}
+<table border='2'>
+            
+    <tr>
+        <th > Serial/NO</th>
+        <th >Product Name</th>
+        <th >Buyer's Name</th>
+        <th >Buyer's Number</th>
+        <th >Buyer's Mail</th>
+        <th >Price</th>
+        <th >Quantity</th>
+        <th >Status</th>
+        <th >Amount Paid</th>
+        <th >Amount Due</th>
+        <th>Date</th>
+        <th>Update</th>
+        
+        
+
+
+    </tr>
+
+    
+
+        {% for product in products%}
+        
+    <tr>
+            
+        <td data-label='Serial/NO' id='header'>{{product.id}}</td>
+
+                        
+
+        <td data-label="B Name">{{product.buyer_name}}</td>
+
+        <td data-label="B Number">{{product.buyer_number}}</td>
+        
+        <td data-label="B Mail">{{product.buyer_email}}</td>
+
+        <td data-label='P Name'>{{product.name}}</td>
+        
+
+        <td data-label='Price'>{{product.price}}</td>
+
+        <td data-label='Quantity'>{{product.quantity}}</td>
+
+        {% if product.payment_status %}
+        <td style='background-color:green; color:white;' data-label='Status' >Paid</td>
+        
+        <td data-label='Amount Paid'>{{product.price_paid}}</td>
+
+        <td data-label='Amount Due'>{{product.price_owing}}</td>
+        
+        {% else%}
+
+        <td style='background-color:red;' data-label=''></td>
+        
+        <td data-label='AmountPaid'>{{product.price_paid}}</td>
+
+        <td data-label='AmountDue'>{{product.price_owing}}</td>
+        
+        
+        {%endif%}
+        <td data-label='Date'>{{product.time_bought}}</td>
+
+        <td><button ><a href={% url 'update' product.id %}>Update</a></button></td>
+
+           
+        
+    
+    </tr>
+
+    {% endfor%}
+        
+
+</table>
+
+
+
+{% else%}
+
+<center id='center'>
+    
+    <h1>Please Search on the Input Entry</h1>
+    <center>
+
+{% endif%}
+
+
+        {% endblock%}

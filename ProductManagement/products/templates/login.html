@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+
+
+{% load static%}
+
+
+
+{% block css%}
+
+<link rel='stylesheet' href={% static  'css/login.css'%}>
+
+{% endblock%}
+
+
+{% block content%}
+
+
+
+
+<h1>LOGIN</h1>
+        
+        
+<div class="form">
+
+    <div class="outer">
+       
+        <form method="POST" action="{%url 'login'%}">
+
+            {% csrf_token %}
+            <label >USER NAME:</label><br>
+            <input type="text" placeholder="Insert your Username" name="user">
+            <br>
+            <label >PASSWORD:</label><br>
+            <input type="password" placeholder="Insert your Password" name="password">
+            <button type='submit'>Submit</button>
+            <p>Don't have an account? <span><a href={% url 'register'%}>Register here</a></span></p>
+            
+            
+        </form>
+        
+    </div>
+    
+</div>
+
+
+
+
+
+{% endblock%}

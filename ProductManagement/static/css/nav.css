@@ -1,0 +1,10 @@
+li{
+    padding-left: 100px;
+}
+
+@media(max-width:800px){
+    li{
+        padding-left: 0px;
+    }
+    
+}

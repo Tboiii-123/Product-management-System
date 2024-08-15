@@ -1,0 +1,94 @@
+{% extends 'base.html'%}
+
+
+
+{% load static%}
+
+
+{% block  css%}
+
+<link href={% static  'css/update.css'%} rel='stylesheet'>
+
+  
+
+{% endblock%}
+
+
+
+
+{% block content%}
+ 
+<div class="form">
+
+
+    <div class="outer">
+                
+        <form method='POST' action=''>
+
+            {% csrf_token%}
+
+            <label >Amount Paid:</label><br>
+        
+            <input type='text' id='payment' name='price' placeholder="amount paid" value="{{product.price_paid}}">
+        
+            <br>
+            
+            <label >Debt:</label><br>
+            <input type="text"  name="owing" id="owing" value="{{product.owing}}" readonly>
+            <br>
+            
+            <label>Payment Status</label>
+            <input type="checkbox"  name="payment_status" id='has_paid' {% if product.payment_status%} checked {%endif%}   >
+                
+        
+            <button type='submit'>Submit</button>
+        
+        
+        </form>
+
+  </div>
+
+</div>
+
+<div style='display:none;'>
+
+    <input type='text' value="{{product.price}}"  id='price' name='total_price'>
+    
+</div>
+
+<script>
+    
+document.addEventListener('DOMContentLoaded',function(){
+    
+    const num1input =document.getElementById('payment');
+            
+    const result =document.getElementById('owing');
+    const num2 =document.getElementById('price').value;
+                    
+
+        function cla(){
+            
+
+                const num1 =num1input.value;
+                    const cal = num1 - num2;
+                    
+            
+                    result.value =Number(cal);
+                    
+        }
+
+    
+        num1input.addEventListener('input',cla);
+
+    
+
+    cla();
+
+});
+
+
+
+</script>
+ 
+
+{% endblock%}
